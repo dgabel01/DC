@@ -74,7 +74,7 @@ const Hero = () => {
       {/* Foreground Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-sm font-semibold text-yellow-400 mb-4">
+          <p className="text-lg font-semibold mb-4">
             Blockchain Development
           </p>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">

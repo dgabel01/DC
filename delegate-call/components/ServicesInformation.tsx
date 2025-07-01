@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const services = [
   {
@@ -36,25 +37,22 @@ const services = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6 },
-  }),
-};
-
 const ServicesInformation = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <section className="px-6 md:px-12 py-16 max-w-6xl mx-auto">
       {/* Hero Header */}
-      <motion.div
+      <div
         className="text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        data-aos="fade-up"
       >
         <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Services</h1>
         <p className="max-w-3xl mx-auto text-lg md:text-xl">
@@ -62,40 +60,34 @@ const ServicesInformation = () => {
           platforms. Whether you&apos;re launching a new protocol, minting NFTs, or bridging chains—we
           handle the full stack.
         </p>
-      </motion.div>
+      </div>
 
       {/* Services Grid */}
       <div className="grid gap-8 md:grid-cols-2">
         {services.map((service, index) => (
-          <motion.div
+          <div
             key={service.title}
             className="p-6 rounded-xl border border-white/10 bg-white/5 shadow-sm hover:shadow-md transition"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={index}
-            variants={fadeUp}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
             <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
             <p className="text-gray-300">{service.detail}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* Bottom CTA */}
-      <motion.div
+      <div
         className="mt-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        custom={services.length}
-        variants={fadeUp}
+        data-aos="fade-up"
+        data-aos-delay={services.length * 100}
       >
         <p className="max-w-2xl mx-auto text-lg md:text-xl">
           Let&apos;s build together. Whether you&apos;re starting from scratch or need help scaling, we&apos;re
           ready to collaborate.
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 };
