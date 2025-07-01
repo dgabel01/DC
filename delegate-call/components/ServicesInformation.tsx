@@ -57,7 +57,7 @@ const ServicesInformation = () => {
         transition={{ duration: 0.6 }}
       >
         <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Services</h1>
-        <p className=" max-w-3xl mx-auto text-lg md:text-xl">
+        <p className="max-w-3xl mx-auto text-lg md:text-xl">
           We deliver high-performance blockchain solutions across a variety of ecosystems and
           platforms. Whether you&apos;re launching a new protocol, minting NFTs, or bridging chains—we
           handle the full stack.
@@ -91,7 +91,7 @@ const ServicesInformation = () => {
         custom={services.length}
         variants={fadeUp}
       >
-        <p className=" max-w-2xl mx-auto text-lg md:text-xl">
+        <p className="max-w-2xl mx-auto text-lg md:text-xl">
           Let&apos;s build together. Whether you&apos;re starting from scratch or need help scaling, we&apos;re
           ready to collaborate.
         </p>

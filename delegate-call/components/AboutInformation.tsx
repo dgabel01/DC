@@ -1,16 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6 },
-  }),
-};
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const highlights = [
   {
@@ -36,15 +28,21 @@ const highlights = [
 ];
 
 const AboutInformation = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <section className="px-6 md:px-12 py-16 max-w-6xl mx-auto">
       {/* Hero Title */}
-      <motion.div
+      <div
         className="text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        data-aos="fade-down"
       >
         <h1 className="text-3xl md:text-5xl font-bold mb-4">About Us</h1>
         <p className=" max-w-3xl mx-auto text-lg md:text-xl">
@@ -53,40 +51,34 @@ const AboutInformation = () => {
           From token bridges and DeFi to NFTs and dApps, our work powers real-world utility at Web3
           scale.&quot;
         </p>
-      </motion.div>
+      </div>
 
       {/* Highlights Section */}
       <div className="grid gap-8 md:grid-cols-2">
         {highlights.map((item, index) => (
-          <motion.div
+          <div
             key={item.title}
             className="p-6 rounded-xl border border-white/10 bg-white/5 shadow-sm hover:shadow-md transition"
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+            data-aos="fade-up"
+            data-aos-delay={index * 100} // stagger delay by 100ms increments
           >
             <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
             <p className="text-gray-300">{item.detail}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* Bottom Blurb */}
-      <motion.div
+      <div
         className="mt-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-        custom={highlights.length}
+        data-aos="fade-up"
+        data-aos-delay={highlights.length * 100} // delay after all highlights
       >
         <p className=" max-w-2xl mx-auto text-lg md:xl">
           Our cross-platform experience enables us to ship scalable, secure, and accessible blockchain solutions.
           Whether it&apos;s DeFi, NFTs, gaming, or infrastructure—we help you build it, fast.
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 };

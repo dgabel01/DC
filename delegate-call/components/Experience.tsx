@@ -1,6 +1,9 @@
 "use client"
 import Image from 'next/image';
-import { motion, easeOut } from 'framer-motion';
+import { useEffect } from 'react';
+import AOS from 'aos'
+import 'aos/dist/aos.css';
+
 import blankImage from '../public/blankhq_logo.jpeg';
 import blackDragon from '../public/blackdragon_io_logo.jpeg';
 import siemensImage from '../public/Siemens_Energy_logo.svg.png';
@@ -17,36 +20,32 @@ const companies = [
   { name: 'Glamos', logo: glamOS, url: 'https://glamos.eu/' },
 ];
 
-// Container variants can be removed or kept minimal because individual cards will animate on in-view
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 1.5, ease: easeOut },
-  },
-};
-
 export default function Experience() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,      // animation duration in ms
+      easing: 'ease-out',  // easing function
+      once: true,          // whether animation should happen only once
+      offset: 100,         // offset (in px) from the original trigger point
+    });
+  }, []);
+
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-semibold mb-8 text-center">Employment Experience</h1>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
         {companies.map(({ name, logo, url }) => (
-          <motion.a
+          <a
             key={name}
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center space-y-2 hover:scale-105 transform transition duration-300"
+            className="flex flex-col items-center space-y-2 transform transition duration-300 hover:scale-105"
             aria-label={name}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"  // <-- triggers animation when in viewport
-            viewport={{ once: true, amount: 0.3 }} // once:true animates only first time, amount:0.3 means 30% visible
-            whileHover={{ scale: 1.1 }}
+            data-aos="fade-up"              // AOS animation type
+            data-aos-once="true"            // animate only once
+            data-aos-anchor-placement="top-bottom"  // trigger point
           >
             <div className="relative w-20 h-20 sm:w-24 sm:h-24">
               <Image
@@ -59,7 +58,7 @@ export default function Experience() {
               />
             </div>
             <span className="text-center text-lg font-bold">{name}</span>
-          </motion.a>
+          </a>
         ))}
       </div>
     </section>
