@@ -1,8 +1,9 @@
 import React from 'react'
+import ServicesInformation from '../../../components/ServicesInformation'
 
 const ServicesPage = () => {
   return (
-    <div>ServicesPage</div>
+    <ServicesInformation/>
   )
 }
 

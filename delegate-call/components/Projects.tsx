@@ -38,7 +38,7 @@ const Projects = () => {
 
   return (
     <section className="mx-auto max-w-4xl px-4 py-10 mt-24">
-      <h1 className="text-center text-4xl font-bold mb-8">
+      <h1 className="text-center text-4xl font-bold mb-16">
         DelegateCall Projects
       </h1>
 
@@ -47,9 +47,9 @@ const Projects = () => {
           {projectList.map((project, index) => (
             <CarouselItem key={index} className="w-full md:basis-1/2">
               <Card className="h-full border-t border-b border-x-0 rounded-none">
-                <CardContent className="flex flex-col aspect-autoitems-center justify-center gap-4 p-6 text-center">
-                  <span className="text-xl font-semibold">{project.name}</span>
-                  <span className="text-muted-foreground text-sm">
+                <CardContent className="flex flex-col aspect-autoi tems-center justify-center gap-4 p-6 text-center">
+                  <span className="text-2xl font-semibold">"{project.name}"</span>
+                  <span className="text-muted-foreground text-lg italic">
                     {project.chains}
                   </span>
                 </CardContent>
@@ -63,7 +63,7 @@ const Projects = () => {
         <CarouselNext className="right-2 top-1/2 -translate-y-1/2" />
       </Carousel>
 
-      <div className="text-muted-foreground py-3 text-center text-sm">
+      <div className="text-muted-foreground py-3 text-center text-md font-semibold">
         Project {current} of {count}
       </div>
     </section>

@@ -1,9 +1,7 @@
-import React from 'react'
+import ProjectsOverview from "../../../components/ProjectsOverview";
 
 const ProjectsPage = () => {
-  return (
-    <div>ProjectsPage</div>
-  )
-}
+  return <ProjectsOverview />;
+};
 
-export default ProjectsPage
+export default ProjectsPage;
