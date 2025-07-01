@@ -56,7 +56,7 @@ const Projects = () => {
           {projectList.map((project, index) => (
             <CarouselItem
               key={index}
-              className="w-full md:basis-1/2"
+              className="w-full"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
