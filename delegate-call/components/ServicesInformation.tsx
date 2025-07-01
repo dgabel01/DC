@@ -92,7 +92,7 @@ const ServicesInformation = () => {
         variants={fadeUp}
       >
         <p className=" max-w-2xl mx-auto text-lg md:text-xl">
-          Let's build together. Whether you&apos;re starting from scratch or need help scaling, we&apos;re
+          Let&apos;s build together. Whether you&apos;re starting from scratch or need help scaling, we&apos;re
           ready to collaborate.
         </p>
       </motion.div>

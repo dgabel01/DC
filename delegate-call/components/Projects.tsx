@@ -48,7 +48,7 @@ const Projects = () => {
             <CarouselItem key={index} className="w-full md:basis-1/2">
               <Card className="h-full border-t border-b border-x-0 rounded-none">
                 <CardContent className="flex flex-col aspect-autoi tems-center justify-center gap-4 p-6 text-center">
-                  <span className="text-2xl font-semibold">"{project.name}"</span>
+                  <span className="text-2xl font-semibold">&quot;{project.name}&quot;</span>
                   <span className="text-muted-foreground text-lg italic">
                     {project.chains}
                   </span>

@@ -48,10 +48,10 @@ const AboutInformation = () => {
       >
         <h1 className="text-3xl md:text-5xl font-bold mb-4">About Us</h1>
         <p className=" max-w-3xl mx-auto text-lg md:text-xl">
-          "We are a blockchain development team focused on delivering high-impact decentralized
+          &quot;We are a blockchain development team focused on delivering high-impact decentralized
           applications across multiple ecosystems including Solana, Ethereum, Base, and PulseChain.
           From token bridges and DeFi to NFTs and dApps, our work powers real-world utility at Web3
-          scale."
+          scale.&quot;
         </p>
       </motion.div>
 
@@ -84,7 +84,7 @@ const AboutInformation = () => {
       >
         <p className=" max-w-2xl mx-auto text-lg md:xl">
           Our cross-platform experience enables us to ship scalable, secure, and accessible blockchain solutions.
-          Whether it's DeFi, NFTs, gaming, or infrastructure—we help you build it, fast.
+          Whether it&apos;s DeFi, NFTs, gaming, or infrastructure—we help you build it, fast.
         </p>
       </motion.div>
     </section>
